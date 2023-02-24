@@ -11,8 +11,38 @@
     crossorigin
     src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
   ></script>
-  <script>
+  <script
+    crossorigin
+    src="https://unpkg.com/@babel/standalone/babel.min.js"
+  ></script>
+  <script type="text/babel">
     const root = document.getElementById("root");
+
+    let counter = 0;
+    const countUp = () => {
+      counter = counter + 1;
+      render();
+    };
+    const render = () => {
+      ReactDOM.createRoot(root).render(Container);
+    };
+
+    const Title2 = () => {
+      return (
+        <h3 id="title" onMouseEnter={() => console.log("mouse enter")}>
+          카운트 : {counter}
+        </h3>
+      );
+    };
+    const Btn = () => {
+      return <button onClick={countUp}>클릭</button>;
+    };
+
+    const Title1 = (
+      <h3 id="title" onMouseEnter={() => console.log("mouse enter")}>
+        카운트 : {counter}
+      </h3>
+    );
     const span = React.createElement(
       "span",
       { id: "one-span", style: { color: "red" } },
@@ -25,7 +55,16 @@
       },
       "click me"
     );
-    const container = React.createElement("div", null, [span, btn]);
-    ReactDOM.createRoot(root).render(container);
+
+    const Container = (
+      <div>
+        <Title2 />
+        <Btn />
+      </div>
+    );
+
+    // const container = React.createElement("div", null, [Title1, span, btn]);
+    // ReactDOM.createRoot(root).render(Container);
+    render();
   </script>
 </html>
