@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+    <div id="root"></div>
+  </body>
+  <script
+    crossorigin
+    src="https://unpkg.com/react@18/umd/react.development.js"
+  ></script>
+  <script
+    crossorigin
+    src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+  ></script>
+  <script
+    crossorigin
+    src="https://unpkg.com/@babel/standalone/babel.min.js"
+  ></script>
+  <script type="text/babel">
+    const App = () => {
+      const [counter, setCounter] = React.useState(0);
+      const onClick = () => {
+        setCounter(counter + 1);
+      };
+      return (
+        <div>
+          <h3>Total {counter}</h3>
+          <button onClick={onClick}>click me</button>
+        </div>
+      );
+    };
+
+    const Container = (
+      <div>
+        <App />
+      </div>
+    );
+
+    const root = document.getElementById("root");
+    ReactDOM.createRoot(root).render(Container);
+  </script>
+</html>
