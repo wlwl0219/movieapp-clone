@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+    <div id="root"></div>
+  </body>
+  <script
+    crossorigin
+    src="https://unpkg.com/react@18/umd/react.development.js"
+  ></script>
+  <script
+    crossorigin
+    src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+  ></script>
+  <script
+    crossorigin
+    src="https://unpkg.com/@babel/standalone/babel.min.js"
+  ></script>
+  <script type="text/babel">
+    const Btn = (props) => {
+      const { text = "??", onClick } = props;
+      console.log(text, "rendered");
+
+      return (
+        <button
+          onClick={onClick}
+          style={{
+            backgroundColor: "tomato",
+            color: "white",
+            padding: "10px 20px",
+            border: 0,
+            borderRadius: 10,
+          }}
+        >
+          {text}
+        </button>
+      );
+    };
+
+    const MemorizedBtn = React.memo(Btn);
+
+    // Btn.propTypes = {
+    //   text: PropTypes.string
+    // }
+
+    const App = () => {
+      const [value, setValue] = React.useState("Save Changes");
+      const changeValue = () => setValue("Revert Changes");
+
+      return (
+        <div>
+          <MemorizedBtn text={value} onClick={changeValue} />
+          <MemorizedBtn text={"쩝쩝"} />
+          <MemorizedBtn />
+        </div>
+      );
+    };
+
+    const root = document.getElementById("root");
+    ReactDOM.createRoot(root).render(<App />);
+  </script>
+</html>
