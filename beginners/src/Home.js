@@ -6,7 +6,7 @@ function Home() {
   return (
     <Router>
       <Routes>
-        <Route path="/detail" element={<Detail />} />
+        <Route path="/detail/:id" element={<Detail />} />
         <Route path="/" element={<Movies />} />
       </Routes>
     </Router>

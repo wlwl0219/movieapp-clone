@@ -1,11 +1,11 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-function Movie({ title, rank, attendance }) {
+function Movie({ id, title, rank, attendance }) {
   return (
     <div>
       <h2>
-        <Link to="/detail">{title}</Link>
+        <Link to={`/detail/${id}`}>{title}</Link>
       </h2>
       <p>관객수: {attendance}</p>
     </div>
@@ -13,6 +13,7 @@ function Movie({ title, rank, attendance }) {
 }
 
 Movie.propTypes = {
+  id: PropTypes.string.isRequired,
   rank: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   attendance: PropTypes.string.isRequired,

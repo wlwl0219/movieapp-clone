@@ -31,6 +31,7 @@ function Movies() {
           {movies.map((movie) => (
             <Movie
               key={movie.movieCd}
+              id={movie.movieCd}
               rank={movie.rank}
               title={movie.movieNm}
               attendance={movie.audiAcc}
