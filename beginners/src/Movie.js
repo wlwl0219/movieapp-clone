@@ -1,10 +1,11 @@
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 function Movie({ title, rank, attendance }) {
   return (
     <div>
       <h2>
-        {rank}위 {title}
+        <Link to="/detail">{title}</Link>
       </h2>
       <p>관객수: {attendance}</p>
     </div>
